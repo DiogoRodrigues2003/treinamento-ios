@@ -14,13 +14,26 @@ class ProductCategoriesCoordinator {
 
 extension ProductCategoriesCoordinator: ProductCategoriesCoordinatorProtocol {
     
+    func openCoffees() {
+        // TODO: open coffes
+    }
+    
+    func openMachines() {
+        // TODO: open machines
+    }
+    
+    func openAccessories() {
+        // TODO: open accessories
+    }
+    
 }
 
 extension ProductCategoriesCoordinator {
     
     class func createModule() -> UIViewController {
         let coordinator = ProductCategoriesCoordinator()
-        let presenter = ProductCategoriesPresenter(coordinator: coordinator)
+        let repository = ProductCategoriesRepository()
+        let presenter = ProductCategoriesPresenter(repository: repository, coordinator: coordinator)
         let view = ProductCategoriesViewController(presenter: presenter)
         
         presenter.view = view

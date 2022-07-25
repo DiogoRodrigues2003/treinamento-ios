@@ -17,6 +17,8 @@
 		61325A402888A864006E84EF /* Jogo_da_MemoriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A3F2888A864006E84EF /* Jogo_da_MemoriaTests.swift */; };
 		61325A4A2888A864006E84EF /* Jogo_da_MemoriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A492888A864006E84EF /* Jogo_da_MemoriaUITests.swift */; };
 		61325A4C2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A4B2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift */; };
+		61D643C2288DC0A300521E10 /* CardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D643C1288DC0A300521E10 /* CardItemView.swift */; };
+		61D643C4288DC7CE00521E10 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D643C3288DC7CE00521E10 /* MemoryGame.swift */; };
 		DA904A2BE7C49380C4740973 /* Pods_Jogo_da_MemoriaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EF0C453FEB208D65EF9B83 /* Pods_Jogo_da_MemoriaTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		61325A452888A864006E84EF /* Jogo da MemoriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jogo da MemoriaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61325A492888A864006E84EF /* Jogo_da_MemoriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogo_da_MemoriaUITests.swift; sourceTree = "<group>"; };
 		61325A4B2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogo_da_MemoriaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		61D643C1288DC0A300521E10 /* CardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItemView.swift; sourceTree = "<group>"; };
+		61D643C3288DC7CE00521E10 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		64C0B3708C08E913C7F18B1D /* Pods_Jogo_da_Memoria_Jogo_da_MemoriaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jogo_da_Memoria_Jogo_da_MemoriaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71C64BE0D259DA90E8EA0D7D /* Pods-Jogo da MemoriaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo da MemoriaTests.debug.xcconfig"; path = "Target Support Files/Pods-Jogo da MemoriaTests/Pods-Jogo da MemoriaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7851ACFBFFC9774561C10AF5 /* Pods-Jogo da Memoria.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Jogo da Memoria.debug.xcconfig"; path = "Target Support Files/Pods-Jogo da Memoria/Pods-Jogo da Memoria.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,9 +118,11 @@
 		61325A272888A862006E84EF /* Jogo da Memoria */ = {
 			isa = PBXGroup;
 			children = (
+				61D643C0288DC07500521E10 /* Views */,
 				61325A282888A862006E84EF /* AppDelegate.swift */,
 				61325A2A2888A862006E84EF /* SceneDelegate.swift */,
 				61325A2C2888A862006E84EF /* ViewController.swift */,
+				61D643C3288DC7CE00521E10 /* MemoryGame.swift */,
 				61325A312888A863006E84EF /* Assets.xcassets */,
 				61325A332888A863006E84EF /* LaunchScreen.storyboard */,
 				61325A362888A863006E84EF /* Info.plist */,
@@ -141,6 +147,14 @@
 			path = "Jogo da MemoriaUITests";
 			sourceTree = "<group>";
 		};
+		61D643C0288DC07500521E10 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				61D643C1288DC0A300521E10 /* CardItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C8B1A0A6CC5FD87120A375CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +175,6 @@
 				71C64BE0D259DA90E8EA0D7D /* Pods-Jogo da MemoriaTests.debug.xcconfig */,
 				0C81D042F98527905AA2E012 /* Pods-Jogo da MemoriaTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -404,6 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				61325A2D2888A862006E84EF /* ViewController.swift in Sources */,
+				61D643C2288DC0A300521E10 /* CardItemView.swift in Sources */,
+				61D643C4288DC7CE00521E10 /* MemoryGame.swift in Sources */,
 				61325A292888A862006E84EF /* AppDelegate.swift in Sources */,
 				61325A2B2888A862006E84EF /* SceneDelegate.swift in Sources */,
 			);

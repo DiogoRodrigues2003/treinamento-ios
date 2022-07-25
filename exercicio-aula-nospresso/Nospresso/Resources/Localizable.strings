@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Nospresso
+
+  Created by Treinamento on 22/07/22.
+  
+*/
+
+"coffees" = "Cafés";
+"machines" = "Máquinas";
+"accessories" = "Acessórios";
+
+"coffees.description" = "Cremosos, espumosos, hmm";
+"machines.description" = "Sem elas não rola café";
+"accessories.description" = "Pra completar a balaca";

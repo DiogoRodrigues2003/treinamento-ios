@@ -31,6 +31,24 @@ class ViewController: UIViewController {
         return image
     }()
     
+    lazy var topCardsStackView: UIStackView = {
+        let top = UIStackView()
+        top.axis = .horizontal
+        top.alignment = .center
+        top.spacing = 23
+        return top
+    }()
+    
+    lazy var bottomCardsStackView: UIStackView = {
+        let top = UIStackView()
+        top.axis = .horizontal
+        top.alignment = .center
+        top.spacing = 23
+        return top
+    }()
+    
+    private var memoryGame = MemoryGame()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViews()
@@ -39,6 +57,10 @@ class ViewController: UIViewController {
     }
     
     @objc func buttonResetClick() {
+        
+    }
+    
+    func update() {
         
     }
 
@@ -58,17 +80,17 @@ extension ViewController {
         restartStackView.addArrangedSubview(restartLabel)
         restartStackView.addArrangedSubview(restartImageView)
         
+        view.addSubview(topCardsStackView)
+        for i in 0...4 {
+            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
+            topCardsStackView.addArrangedSubview(card)
+        }
         
-//        view.addSubview(reiniciarButton)
-//        view.addSubview(forcaImageView)
-//        view.addSubview(bonecoImageView)
-//        view.addSubview(textosStackView)
-//
-//        textosStackView.addArrangedSubview(dicaLabel)
-//        textosStackView.addArrangedSubview(palpiteLabel)
-//        textosStackView.addArrangedSubview(letraTextField)
-//        textosStackView.addArrangedSubview(chutesAnterioresTituloLabel)
-//        textosStackView.addArrangedSubview(chutesAnterioresLabel)
+        view.addSubview(bottomCardsStackView)
+        for i in 5...9 {
+            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
+            bottomCardsStackView.addArrangedSubview(card)
+        }
     }
     
     func buildConstrainst() {
@@ -77,30 +99,31 @@ extension ViewController {
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(50)
             
         }
-//        reiniciarButton.snp.makeConstraints{ make in
-//            //            make.right.equalToSuperview().inset(25)
-//            make.top.equalTo(view.safeAreaLayoutGuide).offset(25)
-//            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(22)
-//        }
-//        forcaImageView.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(25)
-//        }
-//
-//        bonecoImageView.snp.makeConstraints { make in
-//            make.trailing.equalTo(forcaImageView).inset(10)
-//            make.top.equalTo(forcaImageView.snp.centerY).offset(-15)
-//        }
-//
-//        textosStackView.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.top.equalTo(forcaImageView.snp.bottom).offset(24)
-//        }
-//
-//        letraTextField.snp.makeConstraints { make in
-//            //            make.width.height.equalTo(40)
-//            make.size.equalTo(40)
-//        }
+        
+        topCardsStackView.snp.makeConstraints { make in
+            make.top.equalTo(restartStackView.snp.bottom).offset(40)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(50)
+        }
+        
+        bottomCardsStackView.snp.makeConstraints { make in
+            make.top.equalTo(topCardsStackView.snp.bottom).offset(25)
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(50)
+        }
+        
+    }
+}
+
+extension ViewController: CardItemViewDelegateProtocol {
+    func touched(cardType: String, id: Int) {
+        memoryGame.cardClick(cardType: cardType, id: id)
+    }
+}
+
+extension ViewController: MemoryGameDelegateProtocol {
+    
+    func round(firstClick: Int, secondClick: Int) {
+//        var cardOne: CardItemView = topCardsStackView.arrangedSubviews[firstClick]
+//            cardOne.imageView.image = UIImage(named: "default")
     }
 }
 
