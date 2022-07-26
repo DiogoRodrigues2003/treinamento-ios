@@ -26,21 +26,29 @@ class MemoryGame {
     var delegate: MemoryGameDelegateProtocol?
     
     
-    func round() {
-        if firstClickType != secondClickType {
-            delegate?.round(firstClick: firstClickId, secondClick: secondClickId)
-        }
-        
-    }
+//    func round() {
+//        if firstClickType != secondClickType {
+//
+//        }
+//
+//    }
     
     func cardClick(cardType: String, id: Int) {
+        if !firstClickType.isEmpty && !secondClickType.isEmpty {
+            delegate?.round(firstClick: firstClickId, secondClick: secondClickId)
+            firstClickType = ""
+            firstClickId = -1
+            secondClickType = ""
+            secondClickId = -1
+        }
+
         if firstClickType.isEmpty {
             firstClickType = cardType
             firstClickId = id
         } else {
             secondClickType = cardType
             secondClickId = id
-            round()
+//            round()
         }
     }
     

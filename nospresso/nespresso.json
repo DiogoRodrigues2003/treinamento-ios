@@ -1,5 +1,5 @@
 {
-  "sacola": [
+  "bag": [
     {
       "imagem": "https://www.nespresso.com/ecom/medias/sys_master/public/13415712784414/C-0625-Responsive-Standard-80x80.png",
       "id": 1,
@@ -118,7 +118,7 @@
       "idOriginal": 1
     }
   ],
-  "cafes": [
+  "coffees": [
     {
       "id": 1,
       "nome": "Hawaii Kona",
@@ -565,7 +565,7 @@
       "perfilAromatico": "BARISTA CREATIONS Chiaro tem uma torra suave e quase nenhum amargor ou acidez que você possa perceber. Possui notas de caramelo e biscoito quando adicionamos leite. Os baristas do Brooklin nos inspiraram no modo como a leveza da torra valoriza a doçura natural do café e empresta uma suavidade à xícara quando você adiciona leite."
     }
   ],
-  "capsulas": [
+  "capsules": [
     {
       "categoria": "Edição Limitada",
       "cafes": [
@@ -944,7 +944,7 @@
       ]
     }
   ],
-  "acessorios": [
+  "accessories": [
     {
       "categoria": "Xícaras e Copos",
       "itens": [
@@ -1114,7 +1114,7 @@
       ]
     }
   ],
-  "maquinas": [
+  "machines": [
     {
       "id": 1,
       "nome": "Inissia",

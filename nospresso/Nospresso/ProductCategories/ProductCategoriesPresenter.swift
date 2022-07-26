@@ -23,7 +23,7 @@ class ProductCategoriesPresenter {
 extension ProductCategoriesPresenter: ProductCategoriesPresenterProtocol {
     
     func coffeesTouched() {
-        repository.getCoffees()
+        coordinator.openCoffees()
     }
     
     func machinesTouched() {

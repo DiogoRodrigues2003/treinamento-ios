@@ -44,6 +44,12 @@ class ProductCategoriesViewController: UIViewController {
         buildConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     init(presenter: ProductCategoriesPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -54,6 +60,7 @@ class ProductCategoriesViewController: UIViewController {
     }
     
     func configViews() {
+        removeBackButtonLabel()
         view.backgroundColor = Colors.cafes()
     }
     

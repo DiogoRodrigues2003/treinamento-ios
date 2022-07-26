@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 protocol CardItemViewDelegateProtocol {
     func touched(cardType: String, id: Int)
@@ -56,7 +57,7 @@ class CardItemView: UIView {
         if !clicked {
             clicked = true
             imageView.image = UIImage(named: cardType)
-            delegate?.touched(cardType: self.cardType, id: self.id)
+            delegate?.touched(cardType: cardType, id: id)
         }
     }
     

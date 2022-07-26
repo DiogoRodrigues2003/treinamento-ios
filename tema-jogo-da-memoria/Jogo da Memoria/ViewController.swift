@@ -10,6 +10,17 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    lazy var cards: [CardItemView] = {
+        var list: [CardItemView] = [CardItemView]()
+        for i in 0...9 {
+            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
+            card.delegate = self
+            list.append(card)
+        }
+        
+        return list
+    }()
+    
     lazy var restartStackView: UIStackView = {
         let restart = UIStackView()
         restart.axis = .horizontal
@@ -48,12 +59,16 @@ class ViewController: UIViewController {
     }()
     
     private var memoryGame = MemoryGame()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configViews()
         buildViews()
+        buildCards()
         buildConstrainst()
+        
+        memoryGame.delegate = self
     }
     
     @objc func buttonResetClick() {
@@ -81,15 +96,16 @@ extension ViewController {
         restartStackView.addArrangedSubview(restartImageView)
         
         view.addSubview(topCardsStackView)
-        for i in 0...4 {
-            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
-            topCardsStackView.addArrangedSubview(card)
-        }
-        
         view.addSubview(bottomCardsStackView)
+        
+    }
+    
+    func buildCards() {
+        for i in 0...4 {
+            topCardsStackView.addArrangedSubview(cards[i])
+        }
         for i in 5...9 {
-            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
-            bottomCardsStackView.addArrangedSubview(card)
+            bottomCardsStackView.addArrangedSubview(cards[i])
         }
     }
     
@@ -122,8 +138,8 @@ extension ViewController: CardItemViewDelegateProtocol {
 extension ViewController: MemoryGameDelegateProtocol {
     
     func round(firstClick: Int, secondClick: Int) {
-//        var cardOne: CardItemView = topCardsStackView.arrangedSubviews[firstClick]
-//            cardOne.imageView.image = UIImage(named: "default")
+        cards[firstClick].imageView.image = UIImage(named: "default")
+        cards[secondClick].imageView.image = UIImage(named: "default")
     }
 }
 

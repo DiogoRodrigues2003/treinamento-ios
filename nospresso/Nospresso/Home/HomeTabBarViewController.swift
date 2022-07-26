@@ -14,7 +14,7 @@ class HomeTabBarViewController: UITabBarController {
         let navigation = UINavigationController()
         navigation.tabBarItem = .init(title: "Produtos", image: UIImage(systemName: "cart"), tag: 0)
         
-        let viewController = ProductCategoriesCoordinator.createModule()
+        let viewController = ProductCategoriesCoordinator.createModule(using: navigation)
         
         navigation.viewControllers = [viewController]
         

@@ -9,17 +9,10 @@ import Foundation
 
 class ProductCategoriesRepository {
     
-    var api: API = API()
     weak var output: ProductCategoriesRepositoryOutputProtocol?
     
 }
 
 extension ProductCategoriesRepository: ProductCategoriesRepositoryInputProtocol {
-    
-    func getCoffees() {
-        api.request {
-            
-        }
-    }
     
 }
