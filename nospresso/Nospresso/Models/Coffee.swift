@@ -13,6 +13,7 @@ struct Coffee: Codable {
     let name: String
     let description: String
     let intensity: Int?
+    let image: String
     let price: Double
     
     enum CodingKeys: String, CodingKey {
@@ -20,6 +21,7 @@ struct Coffee: Codable {
         case name = "nome"
         case description = "descricao"
         case intensity = "intensidade"
+        case image = "imagem"
         case price = "precoUnitario"
     }
     

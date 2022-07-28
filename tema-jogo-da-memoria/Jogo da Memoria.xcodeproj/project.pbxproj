@@ -17,6 +17,7 @@
 		61325A402888A864006E84EF /* Jogo_da_MemoriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A3F2888A864006E84EF /* Jogo_da_MemoriaTests.swift */; };
 		61325A4A2888A864006E84EF /* Jogo_da_MemoriaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A492888A864006E84EF /* Jogo_da_MemoriaUITests.swift */; };
 		61325A4C2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61325A4B2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift */; };
+		6157D0D528933FFC00630C08 /* MemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6157D0D428933FFC00630C08 /* MemoryGameTests.swift */; };
 		61D643C2288DC0A300521E10 /* CardItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D643C1288DC0A300521E10 /* CardItemView.swift */; };
 		61D643C4288DC7CE00521E10 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D643C3288DC7CE00521E10 /* MemoryGame.swift */; };
 		DA904A2BE7C49380C4740973 /* Pods_Jogo_da_MemoriaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8EF0C453FEB208D65EF9B83 /* Pods_Jogo_da_MemoriaTests.framework */; };
@@ -55,6 +56,7 @@
 		61325A452888A864006E84EF /* Jogo da MemoriaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Jogo da MemoriaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61325A492888A864006E84EF /* Jogo_da_MemoriaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogo_da_MemoriaUITests.swift; sourceTree = "<group>"; };
 		61325A4B2888A864006E84EF /* Jogo_da_MemoriaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogo_da_MemoriaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6157D0D428933FFC00630C08 /* MemoryGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameTests.swift; sourceTree = "<group>"; };
 		61D643C1288DC0A300521E10 /* CardItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItemView.swift; sourceTree = "<group>"; };
 		61D643C3288DC7CE00521E10 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		64C0B3708C08E913C7F18B1D /* Pods_Jogo_da_Memoria_Jogo_da_MemoriaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Jogo_da_Memoria_Jogo_da_MemoriaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				61325A3F2888A864006E84EF /* Jogo_da_MemoriaTests.swift */,
+				6157D0D428933FFC00630C08 /* MemoryGameTests.swift */,
 			);
 			path = "Jogo da MemoriaTests";
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6157D0D528933FFC00630C08 /* MemoryGameTests.swift in Sources */,
 				61325A402888A864006E84EF /* Jogo_da_MemoriaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

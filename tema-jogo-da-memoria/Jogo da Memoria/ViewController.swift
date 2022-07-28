@@ -10,10 +10,15 @@ import SnapKit
 
 class ViewController: UIViewController {
     
+    private let defaultCardImage = UIImage(named: "default")
+    private let allCardsRange = 0...9
+    private let topCardsRange = 0...4
+    private let bottomCardsRange = 5...9
+    
     lazy var cards: [CardItemView] = {
         var list: [CardItemView] = [CardItemView]()
-        for i in 0...9 {
-            let card = CardItemView(cardType: memoryGame.cards[i], id: i)
+        for i in allCardsRange {
+            let card = CardItemView(cardType: memoryGame.cards[i], id: i + 1)
             card.delegate = self
             list.append(card)
         }
@@ -26,6 +31,7 @@ class ViewController: UIViewController {
         restart.axis = .horizontal
         restart.alignment = .center
         restart.spacing = 10
+        restart.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonResetClick)))
         return restart
     }()
     
@@ -60,26 +66,46 @@ class ViewController: UIViewController {
     
     private var memoryGame = MemoryGame()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configViews()
         buildViews()
-        buildCards()
+        buildCardsOnStackViews()
         buildConstrainst()
         
         memoryGame.delegate = self
     }
     
     @objc func buttonResetClick() {
-        
+        reset()
     }
     
-    func update() {
+    func reset() {
+        memoryGame = MemoryGame()
+        memoryGame.delegate = self
         
+        rebuildCards()
     }
-
-
+    
+    func rebuildCards() {
+        for i in allCardsRange {
+            cards[i].clicked = false
+            cards[i].cardType = memoryGame.cards[i]
+            cards[i].imageView.image = defaultCardImage
+        }
+    }
+    
+    func alert(title: String, description: String? = nil) {
+        let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Bacana, bora de novo", style: .default) { _ in
+            self.reset()
+        }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - views setup
@@ -97,14 +123,13 @@ extension ViewController {
         
         view.addSubview(topCardsStackView)
         view.addSubview(bottomCardsStackView)
-        
     }
     
-    func buildCards() {
-        for i in 0...4 {
+    func buildCardsOnStackViews() {
+        for i in topCardsRange {
             topCardsStackView.addArrangedSubview(cards[i])
         }
-        for i in 5...9 {
+        for i in bottomCardsRange {
             bottomCardsStackView.addArrangedSubview(cards[i])
         }
     }
@@ -125,7 +150,6 @@ extension ViewController {
             make.top.equalTo(topCardsStackView.snp.bottom).offset(25)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(50)
         }
-        
     }
 }
 
@@ -137,9 +161,23 @@ extension ViewController: CardItemViewDelegateProtocol {
 
 extension ViewController: MemoryGameDelegateProtocol {
     
-    func round(firstClick: Int, secondClick: Int) {
-        cards[firstClick].imageView.image = UIImage(named: "default")
-        cards[secondClick].imageView.image = UIImage(named: "default")
+    func wrongAttempt(firstClick: Int, secondClick: Int) {
+        self.cards[firstClick].clicked = false
+        self.cards[secondClick].clicked = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            UIView.transition(with: self.cards[firstClick].imageView, duration: 0.5, options: .transitionFlipFromRight, animations: {
+                self.cards[firstClick].imageView.image = self.defaultCardImage
+            }, completion: nil)
+            
+            UIView.transition(with: self.cards[secondClick].imageView, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                self.cards[secondClick].imageView.image = self.defaultCardImage
+            }, completion: nil)
+        }
+    }
+    
+    func victory() {
+        alert(title: "Boa, você terminou!", description: "Você precisou de \(memoryGame.tries) tentativas para finalizar o jogo da memória.")
     }
 }
 

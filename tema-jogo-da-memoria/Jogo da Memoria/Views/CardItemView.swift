@@ -55,8 +55,11 @@ class CardItemView: UIView {
     
     @objc func touched() {
         if !clicked {
+            UIView.transition(with: imageView, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                self.imageView.image = UIImage(named: self.cardType)
+            }, completion: nil)
+            
             clicked = true
-            imageView.image = UIImage(named: cardType)
             delegate?.touched(cardType: cardType, id: id)
         }
     }

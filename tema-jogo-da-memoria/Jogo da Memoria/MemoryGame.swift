@@ -10,50 +10,59 @@ import Foundation
 let cardTypes = ["knight", "wizard", "witch", "elf", "dwarf"]
 
 protocol MemoryGameDelegateProtocol {
-    func round(firstClick: Int, secondClick: Int)
+    func wrongAttempt(firstClick: Int, secondClick: Int)
+    func victory()
 }
 
 class MemoryGame {
     
     private(set) var cards = ["knight", "wizard", "witch", "elf", "dwarf", "knight", "wizard", "witch", "elf", "dwarf",]
+    var doneCards: [String] = []
     
-    private(set) var firstClickType = ""
-    private(set) var firstClickId = -1
-    private(set) var secondClickType = ""
-    private(set) var secondClickId = -1
-    private(set) var tries = 0
+    var firstClickType = ""
+    var firstClickId = 0
+    var secondClickType = ""
+    var secondClickId = 0
+    
+    var tries = 0
     
     var delegate: MemoryGameDelegateProtocol?
-    
-    
-//    func round() {
-//        if firstClickType != secondClickType {
-//
-//        }
-//
-//    }
-    
-    func cardClick(cardType: String, id: Int) {
-        if !firstClickType.isEmpty && !secondClickType.isEmpty {
-            delegate?.round(firstClick: firstClickId, secondClick: secondClickId)
-            firstClickType = ""
-            firstClickId = -1
-            secondClickType = ""
-            secondClickId = -1
-        }
-
-        if firstClickType.isEmpty {
-            firstClickType = cardType
-            firstClickId = id
-        } else {
-            secondClickType = cardType
-            secondClickId = id
-//            round()
-        }
-    }
     
     init() {
         cards.shuffle()
     }
     
+    func cardClick(cardType: String, id: Int) {
+        guard firstClickType.isEmpty else {
+            secondClickType = cardType
+            secondClickId = id
+            attempt()
+            return
+        }
+        firstClickType = cardType
+        firstClickId = id
+    }
+    
+    func attempt() {
+        if firstClickType == secondClickType {
+            doneCards.append(firstClickType)
+            checkVictory()
+        } else {
+            tries += 1
+            delegate?.wrongAttempt(firstClick: firstClickId - 1, secondClick: secondClickId - 1)
+        }
+        resetClicks()
+    }
+    
+    func resetClicks() {
+        firstClickType = ""
+        secondClickType = ""
+    }
+    
+    func checkVictory() {
+        guard doneCards.count == cardTypes.count else {
+            return
+        }
+        delegate?.victory()
+    }
 }

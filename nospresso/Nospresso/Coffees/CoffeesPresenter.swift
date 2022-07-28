@@ -26,6 +26,7 @@ internal class CoffeesPresenter: NSObject {
 // MARK: - Presenter Protocol
 extension CoffeesPresenter: CoffeesPresenterProtocol {
     func viewDidLoad() {
+        view?.showLoadingIndicator()
         repository.getCoffees()
     }
 }
@@ -36,6 +37,7 @@ extension CoffeesPresenter: CoffeesRepositoryOutputProtocol {
         
         DispatchQueue.main.async {
             self.view?.reload()
+            self.view?.hideLoadingIndicator()
         }
     }
     
@@ -48,15 +50,17 @@ extension CoffeesPresenter: CoffeesRepositoryOutputProtocol {
 
 extension CoffeesPresenter: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        capsules[section].category
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = CoffeeTableViewHeader()
+        view.setUp(category: capsules[section].category)
+        return view
     }
 }
 

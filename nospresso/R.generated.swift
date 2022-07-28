@@ -683,7 +683,7 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 6 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
     struct localizable {
       /// Value: Acessórios
       static let accessories = Rswift.StringResource(key: "accessories", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
@@ -691,6 +691,10 @@ struct R: Rswift.Validatable {
       static let coffees = Rswift.StringResource(key: "coffees", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Cremosos, espumosos, hmm
       static let coffeesDescription = Rswift.StringResource(key: "coffees.description", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Intensidade: %d
+      static let intensity = Rswift.StringResource(key: "intensity", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: Intensidade: DESCONHECIDA
+      static let intensityUnknown = Rswift.StringResource(key: "intensity.unknown", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Máquinas
       static let machines = Rswift.StringResource(key: "machines", tableName: "Localizable", bundle: R.hostingBundle, locales: [], comment: nil)
       /// Value: Pra completar a balaca
@@ -735,6 +739,34 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("coffees.description", bundle: bundle, comment: "")
+      }
+
+      /// Value: Intensidade: %d
+      static func intensity(_ value1: Int, preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          let format = NSLocalizedString("intensity", bundle: hostingBundle, comment: "")
+          return String(format: format, locale: applicationLocale, value1)
+        }
+
+        guard let (locale, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "intensity"
+        }
+
+        let format = NSLocalizedString("intensity", bundle: bundle, comment: "")
+        return String(format: format, locale: locale, value1)
+      }
+
+      /// Value: Intensidade: DESCONHECIDA
+      static func intensityUnknown(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("intensity.unknown", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localizable", preferredLanguages: preferredLanguages) else {
+          return "intensity.unknown"
+        }
+
+        return NSLocalizedString("intensity.unknown", bundle: bundle, comment: "")
       }
 
       /// Value: Máquinas

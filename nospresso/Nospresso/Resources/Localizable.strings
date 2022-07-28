@@ -13,3 +13,6 @@
 "coffees.description" = "Cremosos, espumosos, hmm";
 "machines.description" = "Sem elas não rola café";
 "accessories.description" = "Pra completar a balaca";
+
+"intensity" = "Intensidade: %d";
+"intensity.unknown" = "Intensidade: DESCONHECIDA";

@@ -8,13 +8,15 @@
 import Foundation
 import UIKit
 
-internal class CoffeesViewController: UIViewController {
+internal class CoffeesViewController: UIViewController, LoadingIndicatorViewType {
+    
+    var loadingIndicatorViewController: UIViewController?
 
     private let presenter: CoffeesPresenterProtocol
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.separatorStyle = .none
+        tableView.separatorInset = .zero
         
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
@@ -47,8 +49,15 @@ internal class CoffeesViewController: UIViewController {
         super.viewWillAppear(animated)
             
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.barTintColor = Colors.cafes()
         navigationController?.navigationBar.tintColor = .label
+        
+        let barAppearance = UIBarAppearance()
+        barAppearance.backgroundColor = Colors.cafes()
+        
+        let appearance = UINavigationBarAppearance(barAppearance: barAppearance)
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 
 }
@@ -82,9 +91,4 @@ extension CoffeesViewController: CoffeesViewProtocol {
     func reload() {
         tableView.reloadData()
     }
-    
-    func showAlert(title: String, message: String) {
-        // TODO: vai que é tua, Marvin
-    }
-    
 }

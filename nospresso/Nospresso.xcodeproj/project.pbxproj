@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613D4E0A2891A74A00D87FF7 /* UIImageView+LoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D4E092891A74A00D87FF7 /* UIImageView+LoadImage.swift */; };
+		613D4E0C2891B7C800D87FF7 /* Double+Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D4E0B2891B7C800D87FF7 /* Double+Money.swift */; };
+		613D4E0E2891BFBF00D87FF7 /* CoffeeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D4E0D2891BFBF00D87FF7 /* CoffeeTableViewHeader.swift */; };
+		613D4E112891C8EF00D87FF7 /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D4E102891C8EF00D87FF7 /* LoadingIndicatorViewController.swift */; };
 		61E47DF4288F3825006D7BFF /* Machine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E47DF3288F3825006D7BFF /* Machine.swift */; };
 		61E47DF6288F3967006D7BFF /* Capsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E47DF5288F3967006D7BFF /* Capsule.swift */; };
 		61E47DF8289065BE006D7BFF /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E47DF7289065BE006D7BFF /* Endpoint.swift */; };
@@ -81,6 +85,10 @@
 		377E742E5C2D5A6D5F1D0D06 /* Pods-Nospresso.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nospresso.debug.xcconfig"; path = "Target Support Files/Pods-Nospresso/Pods-Nospresso.debug.xcconfig"; sourceTree = "<group>"; };
 		3D7BB57B18C71DA3CD48536E /* Pods_Nospresso_NospressoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Nospresso_NospressoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F9426759CA7E7714856A7BE /* Pods-Nospresso-NospressoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Nospresso-NospressoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Nospresso-NospressoUITests/Pods-Nospresso-NospressoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		613D4E092891A74A00D87FF7 /* UIImageView+LoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+LoadImage.swift"; sourceTree = "<group>"; };
+		613D4E0B2891B7C800D87FF7 /* Double+Money.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Money.swift"; sourceTree = "<group>"; };
+		613D4E0D2891BFBF00D87FF7 /* CoffeeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeTableViewHeader.swift; sourceTree = "<group>"; };
+		613D4E102891C8EF00D87FF7 /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
 		61E47DF3288F3825006D7BFF /* Machine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Machine.swift; sourceTree = "<group>"; };
 		61E47DF5288F3967006D7BFF /* Capsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capsule.swift; sourceTree = "<group>"; };
 		61E47DF7289065BE006D7BFF /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -163,6 +171,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613D4E0F2891C8C000D87FF7 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				613D4E102891C8EF00D87FF7 /* LoadingIndicatorViewController.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
 		61E47DFB28906B6B006D7BFF /* Coffees */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				61E47E092890987A006D7BFF /* CoffeeTableViewCell.swift */,
+				613D4E0D2891BFBF00D87FF7 /* CoffeeTableViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 				8185122E288B2CDF0075C5D3 /* Favorites */,
 				815F27712889E4C30093D186 /* UnderTheCarpet */,
 				818511FB288B165A0075C5D3 /* Extensions */,
+				613D4E0F2891C8C000D87FF7 /* Commons */,
 				818511FE288B1B3C0075C5D3 /* Resources */,
 				81851239288B31AB0075C5D3 /* API */,
 				8185123C288B32A10075C5D3 /* Models */,
@@ -278,6 +296,8 @@
 			children = (
 				818511FC288B16A70075C5D3 /* Typealiases.swift */,
 				61E47DFC28907147006D7BFF /* UIViewController+QoL.swift */,
+				613D4E092891A74A00D87FF7 /* UIImageView+LoadImage.swift */,
+				613D4E0B2891B7C800D87FF7 /* Double+Money.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -651,6 +671,7 @@
 				81851232288B2D7B0075C5D3 /* FavoritesPresenter.swift in Sources */,
 				815F27742889E6100093D186 /* ProductCategoriesPresenter.swift in Sources */,
 				81851236288B2D960075C5D3 /* FavoritesCoordinator.swift in Sources */,
+				613D4E0E2891BFBF00D87FF7 /* CoffeeTableViewHeader.swift in Sources */,
 				8185123E288B32B30075C5D3 /* Coffee.swift in Sources */,
 				61E47E0628909832006D7BFF /* CoffeesProtocols.swift in Sources */,
 				61E47DF8289065BE006D7BFF /* Endpoint.swift in Sources */,
@@ -658,17 +679,20 @@
 				61E47E00289097FE006D7BFF /* CoffeesCoordinator.swift in Sources */,
 				818511FA288B162C0075C5D3 /* R.generated.swift in Sources */,
 				81851238288B2DAB0075C5D3 /* Favorites+Protocols.swift in Sources */,
+				613D4E0C2891B7C800D87FF7 /* Double+Money.swift in Sources */,
 				815F27462889E1B90093D186 /* ProductCategoriesViewController.swift in Sources */,
 				61E47DFA289065DF006D7BFF /* APISupport.swift in Sources */,
 				81851234288B2D8B0075C5D3 /* FavoritesRepository.swift in Sources */,
 				818511F7288B0BA00075C5D3 /* ProductCategoriesItemView.swift in Sources */,
 				815F27782889E6350093D186 /* ProductCategoriesCoordinator.swift in Sources */,
 				61E47DF4288F3825006D7BFF /* Machine.swift in Sources */,
+				613D4E112891C8EF00D87FF7 /* LoadingIndicatorViewController.swift in Sources */,
 				815F27422889E1B90093D186 /* AppDelegate.swift in Sources */,
 				815F27762889E6220093D186 /* ProductCategoriesRepository.swift in Sources */,
 				81851230288B2D420075C5D3 /* FavoritesViewController.swift in Sources */,
 				61E47E022890980E006D7BFF /* CoffeesPresenter.swift in Sources */,
 				8185123B288B31C20075C5D3 /* API.swift in Sources */,
+				613D4E0A2891A74A00D87FF7 /* UIImageView+LoadImage.swift in Sources */,
 				815F27442889E1B90093D186 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
