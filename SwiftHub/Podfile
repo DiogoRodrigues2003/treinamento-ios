@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'SwiftHub' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SwiftHub
+    pod 'SnapKit', '~> 5.6.0'
+    pod 'R.swift'
+    pod 'Nuke'
+
+  target 'SwiftHubTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'SwiftHubUITests' do
+    # Pods for testing
+  end
+
+end
