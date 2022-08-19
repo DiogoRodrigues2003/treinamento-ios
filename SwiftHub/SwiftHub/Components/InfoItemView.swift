@@ -15,7 +15,7 @@ class InfoItemView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = R.font.openSansBold(size: 17)
+        label.font = R.font.sfProDisplayBold(size: 17)
         return label
     }()
     

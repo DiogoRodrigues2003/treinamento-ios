@@ -85,6 +85,7 @@ struct R: Rswift.Validatable {
   }
 
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
 
@@ -189,13 +190,30 @@ struct R: Rswift.Validatable {
 
   /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
-    /// Resource file `Symbol.pdf`.
-    static let symbolPdf = Rswift.FileResource(bundle: R.hostingBundle, name: "Symbol", pathExtension: "pdf")
+    /// Resource file `SFProDisplayBold.ttf`.
+    static let sfProDisplayBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "SFProDisplayBold", pathExtension: "ttf")
 
-    /// `bundle.url(forResource: "Symbol", withExtension: "pdf")`
-    static func symbolPdf(_: Void = ()) -> Foundation.URL? {
-      let fileResource = R.file.symbolPdf
+    /// `bundle.url(forResource: "SFProDisplayBold", withExtension: "ttf")`
+    static func sfProDisplayBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.sfProDisplayBoldTtf
       return fileResource.bundle.url(forResource: fileResource)
+    }
+
+    fileprivate init() {}
+  }
+
+  /// This `R.font` struct is generated, and contains static references to 1 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `SFProDisplay-Bold`.
+    static let sfProDisplayBold = Rswift.FontResource(fontName: "SFProDisplay-Bold")
+
+    /// `UIFont(name: "SFProDisplay-Bold", size: ...)`
+    static func sfProDisplayBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: sfProDisplayBold, size: size)
+    }
+
+    static func validate() throws {
+      if R.font.sfProDisplayBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'SFProDisplay-Bold' could not be loaded, is 'SFProDisplayBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
     }
 
     fileprivate init() {}

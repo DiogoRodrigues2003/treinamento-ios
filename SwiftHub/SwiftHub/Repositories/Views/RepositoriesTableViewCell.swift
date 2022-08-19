@@ -36,7 +36,6 @@ class RepositoriesTableViewCell: UITableViewCell {
     
     lazy var ownerView: UIStackView = {
         let view = UIStackView()
-        view.backgroundColor = .red
         view.axis = .vertical
         view.alignment = .center
         return view
@@ -44,9 +43,15 @@ class RepositoriesTableViewCell: UITableViewCell {
     
     lazy var ownerImageView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 50
+        view.layer.cornerRadius = 30
         view.clipsToBounds = true
         return view
+    }()
+    
+    lazy var ownerNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = label.font.withSize(13)
+        return label
     }()
     
     override public init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -67,6 +72,7 @@ class RepositoriesTableViewCell: UITableViewCell {
         starCountLabel.text = String(repository.starCount) + "⭐️"
         
         ownerImageView.loadImage(from: repository.owner.pictureURL)
+        ownerNameLabel.text = repository.owner.name
     }
 }
 
@@ -83,6 +89,7 @@ extension RepositoriesTableViewCell {
         infosView.addSubview(starCountLabel)
         
         ownerView.addArrangedSubview(ownerImageView)
+        ownerView.addArrangedSubview(ownerNameLabel)
     }
 
     func buildConstraints() {
@@ -93,7 +100,8 @@ extension RepositoriesTableViewCell {
         }
         
         ownerView.snp.makeConstraints { make in
-            make.top.trailing.bottom.equalToSuperview()
+            make.trailing.bottom.equalToSuperview()
+            make.top.equalToSuperview().inset(9)
             make.width.equalTo(90)
         }
         
@@ -110,7 +118,6 @@ extension RepositoriesTableViewCell {
         
         ownerImageView.snp.makeConstraints { make in
             make.size.equalTo(60)
-
         }
         
     }

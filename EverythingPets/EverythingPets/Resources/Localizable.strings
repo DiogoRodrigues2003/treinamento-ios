@@ -1,0 +1,45 @@
+
+"home" = "Home";
+"pet.breeds" = "Pet Breeds";
+"dogs" = "Dogs";
+"cats" = "Cats";
+"dogs.caps" = "DOGS";
+"cats.caps" = "CATS";
+"breed.details" = "Breed Details";
+
+"home.title" = "Welcome to Everything-Pets!";
+"add.pet.title" = "Add your Pet";
+"user.pets.title" = "Your Pets";
+
+"bred.for" = "BRED FOR:";
+"bred.group" = "BREED GROUP:";
+"life.span" = "LIFE SPAN:";
+"temperament" = "TEMPERAMENT:";
+"height" = "HEIGHT:";
+"weight" = "WEIGHT:";
+
+"name" = "Name:";
+"breed" = "Breed:";
+
+"natural" = "NATURAL:";
+"hairless" = "HAIRLESS:";
+"lap" = "LAP:";
+
+"years" = " years";
+"kilo" = " kg";
+"centimeter" = " cm";
+"yes" = "Yes.";
+"no" = "No.";
+"unknown" = "Unknown";
+
+"button.new.image" = "GENERATE NEW IMAGE";
+"button.has.pet" = "I HAVE ONE!";
+"button.photo" = "CHOOSE PHOTO";
+"button.submit" = "SUBMIT";
+"button.remove" = "REMOVE";
+"button.see.breed" = "SEE BREED";
+
+"pet.name.question" = "What's the name of your ";
+"pet.image.question" = "And how does your pet look like?";
+
+"text.field.example" = "Ex.: Chico";
